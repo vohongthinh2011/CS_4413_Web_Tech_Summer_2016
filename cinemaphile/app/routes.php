@@ -21,7 +21,12 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
-Route::get('/signup', function()
-{
-	return View::make('signup');
+Route::get('/signup', 'RegistrationController@showSignUpView');
+Route::post('/signup', 'RegistrationController@signUp');
+
+Route::get('/feed', function() {
+	return View::make('feed');
 });
+
+Route::get('/login', 'AuthenticationController@showLoginView');
+Route::post('/login', 'AuthenticationController@loginUser');
